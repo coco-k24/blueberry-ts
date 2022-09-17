@@ -79,14 +79,31 @@ type Human = {
 // console.log(str('this', ' ', 'is', ' ', 'show'));
 
 
-const toLowerOrUpper = (str: string, upper: boolean = false): string => {
-    if(upper){
-        return str.toUpperCase();
-    } else {
-        return str.toLowerCase();
-    }
+// const toLowerOrUpper = (str: string, upper: boolean = false): string => {
+//     if(upper){
+//         return str.toUpperCase();
+//     } else {
+//         return str.toLowerCase();
+//     }
+// };
+
+// console.log(toLowerOrUpper('hello'));
+
+//4.1.10
+//コールバック関数
+
+type User = {
+    name: string;
+    age: number;
 };
 
-console.log(toLowerOrUpper('hello'));
+const users: User[] = [
+    {name: "salt", age: 24}, 
+    {name: "yajo", age: 20},
+];
+
+const names = users.map((u: User): string => u.name);
+console.log(names);
+
 
 rl.close();
