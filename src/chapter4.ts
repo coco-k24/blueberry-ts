@@ -119,17 +119,39 @@ type Human = {
 //4.2.5
 //コールシグネチャ
 
-type MyFunc = {
-    isUsed?: boolean;
-    (arg: number): void;
+// type MyFunc = {
+//     isUsed?: boolean;
+//     (arg: number): void;
+// }
+
+// const double: MyFunc = (arg: number) => {
+//     console.log(arg * 2);
+// };
+
+// double.isUsed = true;
+// double(144);
+
+//4.3.1
+
+type HasName = {
+    name: string;
 }
 
-const double: MyFunc = (arg: number) => {
-    console.log(arg * 2);
-};
+type HasNameAndAge = {
+    name: string;
+    age: number;
+}
 
-double.isUsed = true;
-double(144);
+const fromAge = (age: number): HasNameAndAge => ({
+    name: "John Smith",
+    age,
+});
+
+const f: (age: number) => HasName = fromAge;
+const obj: HasName = f(100);
+
+console.log(1);
+console.log(typeof(f));
 
 
 rl.close();
