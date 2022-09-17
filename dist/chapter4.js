@@ -3,10 +3,9 @@ const rl = createInterface({
     input: process.stdin,
     output: process.stdout,
 });
-const users = [
-    { name: "salt", age: 24 },
-    { name: "yajo", age: 20 },
-];
-const names = users.map((u) => u.name);
-console.log(names);
+const double = (arg) => {
+    console.log(arg * 2);
+};
+double.isUsed = true;
+double(144);
 rl.close();

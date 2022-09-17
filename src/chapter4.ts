@@ -91,19 +91,45 @@ type Human = {
 
 //4.1.10
 //コールバック関数
+//引数に関数を入れること
 
-type User = {
-    name: string;
-    age: number;
+// type User = {
+//     name: string;
+//     age: number;
+// };
+
+// const users: User[] = [
+//     {name: "salt", age: 24}, 
+//     {name: "yajo", age: 20},
+// ];
+
+// const names = users.map((u: User): string => u.name);
+// console.log(names);
+
+
+//4.2.1
+//関数型の記法
+
+//const xRepeat = (num: number): string => "x".repeat(num);
+//console.log(typeof(xRepeat));
+
+// type F = (repeatNum: number) => string;
+// const xRepeat: F = (num: number): string => "x".repeat(num);
+
+//4.2.5
+//コールシグネチャ
+
+type MyFunc = {
+    isUsed?: boolean;
+    (arg: number): void;
+}
+
+const double: MyFunc = (arg: number) => {
+    console.log(arg * 2);
 };
 
-const users: User[] = [
-    {name: "salt", age: 24}, 
-    {name: "yajo", age: 20},
-];
-
-const names = users.map((u: User): string => u.name);
-console.log(names);
+double.isUsed = true;
+double(144);
 
 
 rl.close();
