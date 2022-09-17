@@ -190,6 +190,8 @@ type HumanFamily = {
 }
 
 
+
+
 //3.4.3
 
 type HasName = {
@@ -296,19 +298,47 @@ console.log(`bar is ${aaa}`);
 
 //3.6.3
 
-const nested = {
-    num: 123,
-    obj: {
-        foo: "hello",
-        bar: "would",
-    }
+// const nested = {
+//     num: 123,
+//     obj: {
+//         foo: "hello",
+//         bar: "would",
+//     }
+// }
+
+// console.log(nested);
+
+// const { num, obj: { foo } } = nested;
+// console.log(`num is ${num}, foo is ${foo}`);
+
+
+//部分型について
+//aはbの部分型である
+
+type a = {
+    foo: string;
+    bar: number;
+    baz: boolean;
 }
 
-console.log(nested);
+type b = {
+    foo: string;
+    bar: number;
+}
 
-const { num, obj: { foo } } = nested;
-console.log(`num is ${num}, foo is ${foo}`);
+const obj: a ={
+    foo: 'aaa',
+    bar: 1234,
+    baz: false,
+}
 
+const obj2: b = obj;
+
+console.log(`obj2 is ${obj2}`);
+console.log(obj2);
+console.log(`onj2.foo is ${obj2.foo}`);
+console.log(`onj2.bar is ${obj2.bar}`);
+console.log(`onj2.baz does not exist`);
 
 
 
