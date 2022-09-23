@@ -133,25 +133,52 @@ type Human = {
 
 //4.3.1
 
-type HasName = {
-    name: string;
+// type HasName = {
+//     name: string;
+// }
+
+// type HasNameAndAge = {
+//     name: string;
+//     age: number;
+// }
+
+// const fromAge = (age: number): HasNameAndAge => ({
+//     name: "John Smith",
+//     age,
+// });
+
+//HasNameAndAge型はHasName型の部分型である
+//よって((age: number) => HasNameAndAge)型は((age: number) => HasName)型の部分型である
+//なお、((age: number) => HasNameAndAge)型や((age: number) => HasName)型は関数型、つまり関数の型である
+// const f: (age: number) => HasName = fromAge;
+// const obj: HasName = f(100);
+
+//4.4.2
+//関数の型引数を宣言する方法
+// const repeat = <T>(element: T, length: number): T[] => {
+//     const result: T[] = [];
+//     for(let i = 0; i < length; i++){
+//         result.push(element);
+//     }
+//     return result;
+// }
+//console.log(repeat<string>('TY', 10));
+
+//4.4.3
+//型引数の省略
+//console.log(repeat('BIG TY', 10));
+
+
+//4.4.4
+//型引数を持つ関数型↓
+type Func = <T>(args: T, num: number) => T[];
+
+const repeat: Func = (element, length) => {
+    const result: T[] = [];
+    for(let i = 0; i < length; i++){
+        result.push(element);
+    }
+    return result;
 }
-
-type HasNameAndAge = {
-    name: string;
-    age: number;
-}
-
-const fromAge = (age: number): HasNameAndAge => ({
-    name: "John Smith",
-    age,
-});
-
-const f: (age: number) => HasName = fromAge;
-const obj: HasName = f(100);
-
-console.log(1);
-console.log(typeof(f));
-
 
 rl.close();
