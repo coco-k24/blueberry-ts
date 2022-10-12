@@ -174,7 +174,7 @@ type Human = {
 type Func = <T>(args: T, num: number) => T[];
 
 const repeat: Func = (element, length) => {
-    const result: T[] = [];
+    const result = [];
     for(let i = 0; i < length; i++){
         result.push(element);
     }
